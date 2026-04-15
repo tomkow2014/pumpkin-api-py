@@ -74,11 +74,11 @@ class CommandBlockEntity:
 
 
 @dataclass
-class Entity_CommandBlockEntity:
+class BlockEntityType_CommandBlockEntity:
     value: CommandBlockEntity
 
 
-Entity = Union[Entity_CommandBlockEntity]
+BlockEntityType = Union[BlockEntityType_CommandBlockEntity]
 
 
 

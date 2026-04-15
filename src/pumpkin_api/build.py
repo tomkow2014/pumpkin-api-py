@@ -11,7 +11,11 @@ def main():
 
     import pumpkin_api
     pkg_dir = os.path.dirname(pumpkin_api.__file__)
-    wit_dir = os.path.join(pkg_dir, "wit_files")
+    # In source checkout, they are in wit_files/repo/...
+    # In installed package, they are directly in wit_files/
+    wit_dir = os.path.join(pkg_dir, "wit_files", "repo", "pumpkin-plugin-wit", "v0.1.0")
+    if not os.path.exists(wit_dir):
+        wit_dir = os.path.join(pkg_dir, "wit_files")
     
     # Pass the parent directory of pumpkin_api to componentize-py so it can resolve `pumpkin_api` module
     # in case it's not installed in a standard site-packages (e.g. editable install or no venv)

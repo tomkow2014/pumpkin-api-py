@@ -9,7 +9,7 @@ import weakref
 
 from componentize_py_types import Result, Ok, Err, Some
 from ..imports import common
-from ..imports import entity
+from ..imports import block_entity
 from ..imports import text
 from ..imports import world
 from ..imports import player
@@ -95,12 +95,12 @@ NotInBounds = Union[NotInBounds_LowerBound, NotInBounds_UpperBound]
 
 @dataclass
 class Arg_Entities:
-    value: List[entity.Entity]
+    value: List[world.Entity]
 
 
 @dataclass
 class Arg_Entity:
-    value: entity.Entity
+    value: world.Entity
 
 
 @dataclass
@@ -269,7 +269,7 @@ class CommandSenderType_Player:
 
 @dataclass
 class CommandSenderType_CommandBlock:
-    value: Tuple[entity.CommandBlockEntity, world.World]
+    value: Tuple[block_entity.CommandBlockEntity, world.World]
 
 
 @dataclass

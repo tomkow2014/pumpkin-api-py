@@ -8,6 +8,7 @@ from abc import abstractmethod
 import weakref
 
 from componentize_py_types import Result, Ok, Err, Some
+from ..imports import common
 from ..imports import text
 from ..imports import scoreboard
 
@@ -200,6 +201,78 @@ class World:
         """
         Returns the minimum Y coordinate (bottom of the world).
         """
+        raise NotImplementedError
+    def get_entities(self) -> List[Any]:
+        """
+        Returns a list of all entities in this world.
+        """
+        raise NotImplementedError
+    def __enter__(self) -> Self:
+        """Returns self"""
+        return self
+                                
+    def __exit__(self, exc_type: type[BaseException] | None, exc_value: BaseException | None, traceback: TracebackType | None) -> bool | None:
+        """
+        Release this resource.
+        """
+        raise NotImplementedError
+
+
+class Entity:
+    
+    def get_id(self) -> int:
+        raise NotImplementedError
+    def get_uuid(self) -> str:
+        raise NotImplementedError
+    def get_type(self) -> str:
+        raise NotImplementedError
+    def get_position(self) -> Tuple[float, float, float]:
+        raise NotImplementedError
+    def get_world(self) -> World:
+        raise NotImplementedError
+    def get_yaw(self) -> float:
+        raise NotImplementedError
+    def get_pitch(self) -> float:
+        raise NotImplementedError
+    def get_head_yaw(self) -> float:
+        raise NotImplementedError
+    def is_on_ground(self) -> bool:
+        raise NotImplementedError
+    def is_sneaking(self) -> bool:
+        raise NotImplementedError
+    def is_sprinting(self) -> bool:
+        raise NotImplementedError
+    def is_invisible(self) -> bool:
+        raise NotImplementedError
+    def is_glowing(self) -> bool:
+        raise NotImplementedError
+    def teleport(self, pos: Tuple[float, float, float], world_ref: World) -> None:
+        raise NotImplementedError
+    def set_velocity(self, velocity: Tuple[float, float, float]) -> None:
+        raise NotImplementedError
+    def get_velocity(self) -> Tuple[float, float, float]:
+        raise NotImplementedError
+    def get_pose(self) -> common.EntityPose:
+        raise NotImplementedError
+    def get_name(self) -> text.TextComponent:
+        raise NotImplementedError
+    def set_custom_name(self, name: text.TextComponent) -> None:
+        raise NotImplementedError
+    def get_custom_name(self) -> Optional[text.TextComponent]:
+        raise NotImplementedError
+    def set_custom_name_visible(self, visible: bool) -> None:
+        raise NotImplementedError
+    def is_custom_name_visible(self) -> bool:
+        raise NotImplementedError
+    def is_invulnerable(self) -> bool:
+        raise NotImplementedError
+    def set_invulnerable(self, invulnerable: bool) -> None:
+        raise NotImplementedError
+    def get_fire_ticks(self) -> int:
+        raise NotImplementedError
+    def set_fire_ticks(self, ticks: int) -> None:
+        raise NotImplementedError
+    def remove(self) -> None:
         raise NotImplementedError
     def __enter__(self) -> Self:
         """Returns self"""

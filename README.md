@@ -24,7 +24,8 @@ class MyPlugin(Plugin):
             name="my-plugin",
             version="0.1.0",
             authors=["you"],
-            description="An example plugin."
+            description="An example plugin.",
+            dependencies=[]
         )
 
     def on_load(self, ctx: context.Context) -> None:

@@ -167,6 +167,12 @@ class PlayerToggleSneakEventData:
     cancelled: bool
 
 @dataclass
+class PlayerToggleFlightEventData:
+    player: player.Player
+    is_flying: bool
+    cancelled: bool
+
+@dataclass
 class PlayerToggleSprintEventData:
     player: player.Player
     is_sprinting: bool
@@ -271,16 +277,17 @@ class EventType(Enum):
     PLAYER_INTERACT_UNKNOWN_ENTITY_EVENT = 16
     PLAYER_INTERACT_EVENT = 17
     PLAYER_TOGGLE_SNEAK_EVENT = 18
-    PLAYER_TOGGLE_SPRINT_EVENT = 19
-    BLOCK_REDSTONE_EVENT = 20
-    BLOCK_BREAK_EVENT = 21
-    BLOCK_BURN_EVENT = 22
-    BLOCK_CAN_BUILD_EVENT = 23
-    BLOCK_GROW_EVENT = 24
-    BLOCK_PLACE_EVENT = 25
-    SERVER_COMMAND_EVENT = 26
-    SPAWN_CHANGE_EVENT = 27
-    SERVER_BROADCAST_EVENT = 28
+    PLAYER_TOGGLE_FLIGHT_EVENT = 19
+    PLAYER_TOGGLE_SPRINT_EVENT = 20
+    BLOCK_REDSTONE_EVENT = 21
+    BLOCK_BREAK_EVENT = 22
+    BLOCK_BURN_EVENT = 23
+    BLOCK_CAN_BUILD_EVENT = 24
+    BLOCK_GROW_EVENT = 25
+    BLOCK_PLACE_EVENT = 26
+    SERVER_COMMAND_EVENT = 27
+    SPAWN_CHANGE_EVENT = 28
+    SERVER_BROADCAST_EVENT = 29
 
 
 @dataclass
@@ -379,6 +386,11 @@ class Event_PlayerToggleSneakEvent:
 
 
 @dataclass
+class Event_PlayerToggleFlightEvent:
+    value: PlayerToggleFlightEventData
+
+
+@dataclass
 class Event_PlayerToggleSprintEvent:
     value: PlayerToggleSprintEventData
 
@@ -428,7 +440,7 @@ class Event_ServerBroadcastEvent:
     value: ServerBroadcastEventData
 
 
-Event = Union[Event_PlayerJoinEvent, Event_PlayerLeaveEvent, Event_PlayerLoginEvent, Event_PlayerChatEvent, Event_PlayerCommandSendEvent, Event_PlayerPermissionCheckEvent, Event_PlayerMoveEvent, Event_PlayerTeleportEvent, Event_PlayerChangeWorldEvent, Event_PlayerExpChangeEvent, Event_PlayerItemHeldEvent, Event_PlayerChangedMainHandEvent, Event_PlayerGamemodeChangeEvent, Event_PlayerCustomPayloadEvent, Event_PlayerFishEvent, Event_PlayerEggThrowEvent, Event_PlayerInteractUnknownEntityEvent, Event_PlayerInteractEvent, Event_PlayerToggleSneakEvent, Event_PlayerToggleSprintEvent, Event_BlockRedstoneEvent, Event_BlockBreakEvent, Event_BlockBurnEvent, Event_BlockCanBuildEvent, Event_BlockGrowEvent, Event_BlockPlaceEvent, Event_ServerCommandEvent, Event_SpawnChangeEvent, Event_ServerBroadcastEvent]
+Event = Union[Event_PlayerJoinEvent, Event_PlayerLeaveEvent, Event_PlayerLoginEvent, Event_PlayerChatEvent, Event_PlayerCommandSendEvent, Event_PlayerPermissionCheckEvent, Event_PlayerMoveEvent, Event_PlayerTeleportEvent, Event_PlayerChangeWorldEvent, Event_PlayerExpChangeEvent, Event_PlayerItemHeldEvent, Event_PlayerChangedMainHandEvent, Event_PlayerGamemodeChangeEvent, Event_PlayerCustomPayloadEvent, Event_PlayerFishEvent, Event_PlayerEggThrowEvent, Event_PlayerInteractUnknownEntityEvent, Event_PlayerInteractEvent, Event_PlayerToggleSneakEvent, Event_PlayerToggleFlightEvent, Event_PlayerToggleSprintEvent, Event_BlockRedstoneEvent, Event_BlockBreakEvent, Event_BlockBurnEvent, Event_BlockCanBuildEvent, Event_BlockGrowEvent, Event_BlockPlaceEvent, Event_ServerCommandEvent, Event_SpawnChangeEvent, Event_ServerBroadcastEvent]
 
 
 

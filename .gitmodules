@@ -1,0 +1,3 @@
+[submodule "src/pumpkin_api/wit_files/repo"]
+	path = src/pumpkin_api/wit_files/repo
+	url = https://github.com/Pumpkin-MC/Pumpkin.git

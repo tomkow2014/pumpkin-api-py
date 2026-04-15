@@ -23,7 +23,7 @@ from typing import Dict, Callable, Any, Type, Optional, List, Union
 from .wit.wit_world.imports import (
     server, event, command, context, text, scheduler, 
     logging, gui, scoreboard, i18n, player, world, 
-    common, entity, permission
+    common, block_entity, permission
 )
 from .wit.wit_world.exports import metadata
 from componentize_py_types import Err

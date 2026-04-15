@@ -19,4 +19,5 @@ class PluginMetadata:
     version: str
     authors: List[str]
     description: str
+    dependencies: List[str]
 

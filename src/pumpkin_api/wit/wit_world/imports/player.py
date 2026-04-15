@@ -35,6 +35,11 @@ class Player:
     A handle to a player on the server.
     """
     
+    def as_entity(self) -> world.Entity:
+        """
+        Returns the player as an entity.
+        """
+        raise NotImplementedError
     def get_id(self) -> str:
         """
         Returns the player's unique UUID as a string.
